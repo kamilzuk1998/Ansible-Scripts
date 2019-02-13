@@ -1,16 +1,16 @@
 ---
-- hosts: ASAs
-  gather_facts: true
+- name: 'ASA config'
+  hosts: ASAs
   connection: local
-
-   tasks:
-     - asa_command:
-          commands:
-            - show run
-          provider:
+  gather_facts: false
+  tasks:
+    - name: Retrieve config files from ASAs
+      asa_command:
+        commands:
+          - show run
+        provider:
           username: "kamil.zuk"
           password: "January18"
-          
       when: status != 'build'
       register: output
     - copy: 
