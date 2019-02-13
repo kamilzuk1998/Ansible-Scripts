@@ -2,8 +2,8 @@
 - hosts: ASAs
   gather_facts: true
   connection: local
-  
-    tasks:
+
+   tasks:
      - asa_command:
           commands:
             - show run
