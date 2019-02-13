@@ -13,7 +13,6 @@
           password: "January18"
           authorize: yes
           auth_pass: "January18"
-      when: status != 'build'
       register: output
     - copy: 
         content: "{{ output.stdout[0] }}"
