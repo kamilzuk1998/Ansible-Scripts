@@ -1,6 +1,6 @@
 --- 
 - hosts: ASAs
-  gather_facts: true
+  gather_facts: false
   connection: local
   
   tasks:
@@ -13,6 +13,7 @@
     password: January18
   register: config
   
+  - name: backup running config in /etc/ansible
     copy:
       content: "{{ config.stdout[0] }}"
       dest: "/etc/ansible/show_run_{{ inventory.hostname }}.txt"
