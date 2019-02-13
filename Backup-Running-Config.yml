@@ -5,9 +5,9 @@
   
   tasks:
   - name: show running config
-      asa_command:
-        commands:
-          - show run
+     - asa_command:
+          commands:
+            - show run
     host: "{{ ansible_host }}"
     username: kamil.zuk
     password: January18
