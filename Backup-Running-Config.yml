@@ -3,9 +3,8 @@
   gather_facts: true
   connection: local
   
-  tasks:
-  - name: show running config
-      asa_command:
+   tasks:
+     - asa_command:
           commands:
             - show run
           provider:
