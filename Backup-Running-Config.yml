@@ -8,13 +8,13 @@
       asa_command:
           commands:
             - show run
-    host: "{{ ansible_host }}"
-    username: kamil.zuk
-    password: January18
-    register: config
-    
-    - name: save output to /etc/ansible
-      copy:
-      content: "{{ config.stdout[0] }}"
-      dest: "/etc/ansible/show_run_{{ inventory.hostname }}.txt"
-  
+          provider:
+          username: "kamil.zuk"
+          password: "January18"
+          
+      when: status != 'build'
+      register: output
+    - copy: 
+        content: "{{ output.stdout[0] }}"
+        dest: "/etc/ansible/show_run_{{ inventory.hostname }}.txt"
+
