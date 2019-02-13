@@ -13,7 +13,6 @@
     password: January18
   register: config
   
-  - name: backup running config in /etc/ansible
       register: output
     - copy: 
       content: "{{ config.stdout[0] }}"
