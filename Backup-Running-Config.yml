@@ -2,16 +2,19 @@
 - name: 'ASA config'
   hosts: all
   connection: local
-  gather_facts: no
+  gather_facts: false
   tasks:
-    - name: Retrieve config files from ASAs
+    - name: Retrieve config files from Top ASAs
       asa_command:
         commands:
           - show run
         provider:
           username: "kamil.zuk"
           password: "January18"
+          authorize: yes
+          auth_pass: "January18"
+      when: status != 'build'
       register: output
     - copy: 
         content: "{{ output.stdout[0] }}"
-        dest: "/etc/ansible/show_run_{{ inventory.hostname }}.txt"
+        dest: "/home/root/data/Device-Configs/asa/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Top-{{ inventory_hostname }}"
