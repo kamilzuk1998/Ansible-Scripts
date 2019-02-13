@@ -11,6 +11,7 @@
         provider:
           username: "kamil.zuk"
           password: "January18"
+          host: "{{ ansible_host }}"
       when: status != 'build'
       register: output
     - copy: 
