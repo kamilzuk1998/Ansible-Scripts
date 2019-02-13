@@ -2,7 +2,7 @@
 - name: 'ASA config'
   hosts: all
   connection: local
-  gather_facts: true
+  gather_facts: no
   tasks:
     - name: Retrieve config files from ASAs
       asa_command:
@@ -11,7 +11,6 @@
         provider:
           username: "kamil.zuk"
           password: "January18"
-          host: "{{ ansible_host }}"
       register: output
     - copy: 
         content: "{{ output.stdout[0] }}"
