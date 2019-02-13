@@ -5,14 +5,16 @@
   
   tasks:
   - name: show running config
-    ios_command:
-       commands:
+      asa_command:
+        commands:
           - show run
     host: "{{ ansible_host }}"
     username: kamil.zuk
     password: January18
     register: config
-    copy:
+    
+    - name: save output to /etc/ansible
+      copy:
       content: "{{ config.stdout[0] }}"
       dest: "/etc/ansible/show_run_{{ inventory.hostname }}.txt"
   
