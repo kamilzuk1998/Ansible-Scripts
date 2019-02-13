@@ -1,6 +1,6 @@
 ---
 - name: 'ASA config'
-  hosts: ASAs
+  hosts: all
   connection: local
   gather_facts: true
   tasks:
