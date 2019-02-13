@@ -1,4 +1,4 @@
---- 
+---
 - hosts: ASAs
   gather_facts: true
   connection: local
@@ -17,4 +17,3 @@
     - copy: 
         content: "{{ output.stdout[0] }}"
         dest: "/etc/ansible/show_run_{{ inventory.hostname }}.txt"
-
