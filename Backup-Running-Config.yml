@@ -14,7 +14,8 @@
   register: config
   
   - name: backup running config in /etc/ansible
-    copy:
+      register: output
+    - copy: 
       content: "{{ config.stdout[0] }}"
       dest: "/etc/ansible/show_run_{{ inventory.hostname }}.txt"
   
