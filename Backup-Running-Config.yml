@@ -2,7 +2,7 @@
 - name: 'ASA config'
   hosts: ASAs
   connection: local
-  gather_facts: false
+  gather_facts: true
   tasks:
     - name: Retrieve config files from ASAs
       asa_command:
