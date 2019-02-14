@@ -9,10 +9,10 @@
         commands:
           - show run
         provider:
-          username: "{{ login_user }}"
-          password: "{{ login_pass }}"
+          username: kamil.zuk
+          password: January18
           authorize: yes
-          auth_pass: "{{ enable_pass }}"
+          auth_pass: January18
           
       register: output
     - copy: 
