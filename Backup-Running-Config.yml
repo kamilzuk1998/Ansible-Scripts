@@ -5,10 +5,10 @@
   gather_facts: false
 
   tasks:
-   - name: show run 
-   asa_command:
-   commands:
-     - show run 
+    - name: Retrieve config files from ASA
+      asa_command:
+        commands:
+          - show run
      host: "{{ ansible_host }}"
      username: kamil.zuk
      password: January18
