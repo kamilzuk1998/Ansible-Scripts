@@ -6,6 +6,8 @@
     creds:
       username: kamil.zuk
       password: January18
+      authorize: yes
+      auth_pass: January18
   tasks:
     - ios_command:
         provider: "{{ creds }}"
