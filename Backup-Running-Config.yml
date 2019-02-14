@@ -9,7 +9,7 @@
       asa_command:
         commands:
           - show run
-          register: output
+    register: version
     - copy: 
         content: "{{ output.stdout[0] }}"
         dest: "/home/root/data/Device-Configs/asa/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Top-{{ inventory_hostname }}"
