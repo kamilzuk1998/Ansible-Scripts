@@ -9,10 +9,10 @@
         commands:
           - show run
         provider:
-          username: "{{ creds['username'] }}"
-          password: "{{ creds['password'] }}"
+          username: kamil.zuk
+          password: January18
           authorize: yes
-          auth_pass: "{{ creds['auth_pass'] }}"
+          auth_pass: January18
           register: output
     - copy: 
       register: output
