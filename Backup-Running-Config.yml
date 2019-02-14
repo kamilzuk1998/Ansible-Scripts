@@ -5,15 +5,14 @@
   gather_facts: false
   tasks:
     - name: Retrieve config files from ASA
+       provider:
+         username: kamil.zuk
+         password: January18
+         authorize: yes
+         auth_pass: January18
       asa_command:
         commands:
-          - en
           - show run
-        provider:
-          username: kamil.zuk
-          password: January18
-          authorize: yes
-          auth_pass: January18
           
       register: output
     - copy: 
