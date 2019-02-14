@@ -5,6 +5,7 @@
   gather_facts: false
   tasks:
     - name: Retrieve config files from Top ASAs
+      provider: "{{login_info}}" 
       asa_command:
         commands:
           - show run
