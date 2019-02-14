@@ -5,14 +5,14 @@
   gather_facts: false
   tasks:
     - name: Retrieve config files from Top ASAs
+      asa_command:
+        commands:
+          - show run
       provider:
       username: "{{ login_user }}"
       password: "{{ login_pass }}"
       authorize: yes
       auth_pass: "{{ enable_pass }}"
-      asa_command:
-        commands:
-          - show run
     - register: version
     - copy: 
         content: "{{ output.stdout[0] }}"
