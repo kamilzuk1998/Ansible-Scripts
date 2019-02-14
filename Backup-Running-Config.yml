@@ -1,7 +1,7 @@
 ---
 - name: Cisco ASA config
   connection: local
-  hosts: firewall
+  hosts: all
   gather_facts: false
   vars:
     cli:
