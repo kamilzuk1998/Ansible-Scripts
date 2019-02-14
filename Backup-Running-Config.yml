@@ -18,4 +18,4 @@
       register: output
     - copy: 
         content: "{{ output.stdout[0] }}"
-        dest: "/var/lib/awx/asa/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Top-{{ inventory_hostname }}"
+        dest: "/etc/ansible/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Top-{{ inventory_hostname }}"
