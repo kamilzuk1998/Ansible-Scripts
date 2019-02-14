@@ -1,16 +1,20 @@
 ---
-- name: Cisco ASA config
-  connection: local
-  hosts: ASA-01
-  gather_facts: false
+- hosts: ASA-01
+  any_errors_fatal: True
+  gather_facts: no
+  remote_user: admin
 
-tasks:
-    - name: Retrieve config files from ASA
-      asa_command:
+  vars:
+    cli:
+      host: ASA-01
+      username: kamil.zuk
+      password: January18
+      transport: cli
+      authorize: yes
+      auth_pass: January18
+
+  tasks:
+    - asa_command:
         commands:
-          - show run
-        provider:
-          host: "{{ ansible_host }}"
-          username: kamil.zuk
-          password: January18
-          register: config
+          - show version
+        provider: "{{ cli }}"
