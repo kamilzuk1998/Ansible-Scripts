@@ -1,11 +1,10 @@
 ---
 - name: Save Configurations (IOS)
-  hosts: cisco
+  hosts: all
   vars:
     creds:
-      host: "{{ host }}"
-      username: "{{ username }}"
-      password: "{{ password }}"
+      username: kamil.zuk
+      password: January18
   tasks:
     - ios_command:
         provider: "{{ creds }}"
