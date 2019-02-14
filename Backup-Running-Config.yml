@@ -5,14 +5,14 @@
   gather_facts: false
   tasks:
     - name: Retrieve config files from Top ASAs
+      include_vars: secrets.yaml
       asa_command:
         commands:
           - show run
         provider:
-          username: kamil.zuk
-          password: January18
-          authorize: yes
-          auth_pass: January18
+          username: "{{ creds['username'] }}"
+          password: "{{ creds['password'] }}"
+          auth_pass: "{{ creds['auth_pass'] }}"
           register: output
     - copy: 
       register: output
