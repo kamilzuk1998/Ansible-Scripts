@@ -1,6 +1,15 @@
 ---
+vars:
+  cli:
+    host: all
+    username: kamil.zuk
+    password: January18
+    authorize: yes
+    auth_pass: January18
+    transport: cli
+    
+---
 - name: 'ASA config'
-  hosts: all
   connection: local
   gather_facts: false
   tasks:
@@ -8,12 +17,8 @@
       asa_command:
         commands:
           - show run
-        provider:
-          username: kamil.zuk
-          password: January18
-          authorize: yes
-          auth_pass: January18
-          register: output
+        provider: "{{ cli }}"
+        context: system
     - copy: 
       register: output
     - copy: 
