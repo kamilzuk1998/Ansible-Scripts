@@ -1,6 +1,7 @@
 ---
 - name: Save Configurations (IOS)
   hosts: all
+  connection: local
   vars:
     creds:
       username: kamil.zuk
