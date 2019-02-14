@@ -1,19 +1,20 @@
 ---
 - name: Cisco ASA config
   connection: local
-  hosts: all
+  hosts: ASA-01
   gather_facts: false
-  vars:
-    cli:
-      username: kamil.zuk
-      password: January18
-      hosts: all
-      authorize: yes
-      auth_pass: January18
-  tasks:
-    - name: run show version
-      asa_command:
-        commands:
-          - show version
-        provider: "{{ cli }}"
-       register: result
+  
+    tasks:
+   - name: show run 
+   ios_command:
+   commands:
+     - show run 
+     host: "{{ ansible_host }}"
+     username: roger
+     password: password
+     register: config
+
+  - name: save output to /etc/ansible/backups 
+  copy: 
+  content: "{{ config.stdout[0] }}"
+  dest: "/etc/ansible/backups/show_run_{{ inventory_hostname }}.txt"
