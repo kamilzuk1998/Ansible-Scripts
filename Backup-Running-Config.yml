@@ -3,15 +3,15 @@
   connection: local
   hosts: ASA-01
   gather_facts: false
-  
-    tasks:
+
+  tasks:
    - name: show run 
    ios_command:
    commands:
      - show run 
      host: "{{ ansible_host }}"
-     username: roger
-     password: password
+     username: kamil.zuk
+     password: January18
      register: config
 
   - name: save output to /etc/ansible/backups 
