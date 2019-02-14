@@ -6,7 +6,7 @@
 
   tasks:
    - name: show run 
-   ios_command:
+   asa_command:
    commands:
      - show run 
      host: "{{ ansible_host }}"
