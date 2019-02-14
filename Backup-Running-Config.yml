@@ -1,4 +1,7 @@
 ---
+- name: Test reachability to 62.25.81.100 using default vrf
+  ios_ping:
+    dest: 62.25.81.100
 - name: 'ASA config'
   hosts: all
   connection: local
