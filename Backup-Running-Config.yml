@@ -11,9 +11,9 @@
       authorize: yes
       auth_pass: January18
   tasks:
-    - name: create object group
+    - name: run show version
       asa_command:
         commands:
           - show version
         provider: "{{ cli }}"
-#      register: result
+       register: result
