@@ -1,16 +1,15 @@
 ---
-vars:
-  cli:
-    host: all
-    username: kamil.zuk
-    password: January18
-    authorize: yes
-    auth_pass: January18
-    transport: cli
-
----
+gather_facts: false
+  vars:
+    cli:
+      username: kamil.zuk
+      password: January18
+      hosts: all
+      authorize: yes
+      auth_pass: January18
 - asa_command:
     commands:
       - show version
     provider: "{{ cli }}"
     context: system
+    register: result
