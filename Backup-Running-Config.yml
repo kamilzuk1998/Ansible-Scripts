@@ -7,20 +7,10 @@ vars:
     authorize: yes
     auth_pass: January18
     transport: cli
-    
+
 ---
-- name: 'ASA config'
-  connection: local
-  gather_facts: false
-  tasks:
-    - name: Retrieve config files from Top ASAs
-      asa_command:
-        commands:
-          - show run
-        provider: "{{ cli }}"
-        context: system
-    - copy: 
-      register: output
-    - copy: 
-        content: "{{ output.stdout[0] }}"
-        dest: "/etc/ansible/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Top-{{ inventory_hostname }}"
+- asa_command:
+    commands:
+      - show version
+    provider: "{{ cli }}"
+    context: system
