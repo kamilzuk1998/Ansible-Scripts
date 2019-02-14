@@ -10,9 +10,11 @@
       hosts: all
       authorize: yes
       auth_pass: January18
-- asa_command:
-    commands:
-      - show version
+  tasks:
+    - name: create object group
+      asa_command:
+        commands:
+          - show version
     provider: "{{ cli }}"
     context: system
     register: result
