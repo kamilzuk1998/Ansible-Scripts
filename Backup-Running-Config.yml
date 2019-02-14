@@ -4,12 +4,13 @@
   hosts: ASA-01
   gather_facts: false
 
-  tasks:
+tasks:
     - name: Retrieve config files from ASA
       asa_command:
         commands:
           - show run
-      host: "{{ ansible_host }}"
-      username: kamil.zuk
-      password: January18
-      register: config
+        provider:
+          host: "{{ ansible_host }}"
+          username: kamil.zuk
+          password: January18
+          register: config
