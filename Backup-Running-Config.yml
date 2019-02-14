@@ -1,12 +1,12 @@
 ---
-- hosts: ASAs
+- hosts: all
   any_errors_fatal: True
   gather_facts: no
   remote_user: admin
 
   vars:
     cli:
-      host: ASA-01
+    #  host: ASA-01
       username: kamil.zuk
       password: January18
       transport: cli
