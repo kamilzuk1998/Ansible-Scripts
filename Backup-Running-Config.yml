@@ -15,6 +15,5 @@
       asa_command:
         commands:
           - show version
-    provider: "{{ cli }}"
-    context: system
-    register: result
+        provider: "{{ cli }}"
+#      register: result
