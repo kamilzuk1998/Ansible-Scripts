@@ -9,10 +9,10 @@
       asa_command:
         commands:
           - show run
-     host: "{{ ansible_host }}"
-     username: kamil.zuk
-     password: January18
-     register: config
+      host: "{{ ansible_host }}"
+      username: kamil.zuk
+      password: January18
+      register: config
 
   - name: save output to /etc/ansible/backups 
   copy: 
