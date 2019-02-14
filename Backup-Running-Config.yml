@@ -2,7 +2,7 @@
 - name: 'ASA config'
   hosts: all
   connection: local
-  gather_facts: false
+  gather_facts: true
   tasks:
     - name: Retrieve config files from ASA
       asa_command:
@@ -14,7 +14,6 @@
           authorize: yes
           auth_pass: January18
           
-      when: status != 'build'
       register: output
     - copy: 
         content: "{{ output.stdout[0] }}"
