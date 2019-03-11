@@ -1,3 +1,4 @@
+---
 tasks:
     - name: Retrieve config files from ASA
       asa_command:
