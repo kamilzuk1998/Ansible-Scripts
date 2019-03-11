@@ -13,7 +13,6 @@
           password: "{{ login_pass }}"
           authorize: yes
           auth_pass: "{{ enable_pass }}"
-      when: status != 'build'
       register: output
     - copy: 
         content: "{{ output.stdout[0] }}"
