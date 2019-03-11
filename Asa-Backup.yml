@@ -13,8 +13,7 @@
           password: "January18"
           authorize: yes
           auth_pass: "January18"
-      when: status != 'build'
       register: output
     - copy: 
         content: "{{ output.stdout[0] }}"
-        dest: "/home/root/data/Device-Configs/asa/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Top-{{ inventory_hostname }}"
+        dest: "/var/tmp/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Top-{{ inventory_hostname }}"
