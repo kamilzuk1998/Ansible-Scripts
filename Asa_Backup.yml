@@ -1,0 +1,16 @@
+tasks:
+    - name: Retrieve config files from ASA
+      asa_command:
+        commands:
+          - show run
+        provider:
+          username: "{{ login_user }}"
+          password: "{{ login_pass }}"
+          authorize: yes
+          auth_pass: "{{ enable_pass }}"
+          
+      when: status != 'build'
+      register: output
+    - copy: 
+        content: "{{ output.stdout[0] }}"
+        dest: "/var/lib/awx/asa/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Top-{{ inventory_hostname }}"
