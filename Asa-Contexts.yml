@@ -15,7 +15,5 @@
           authorize: yes
           auth_pass: "January18"
       register: output
-
-- debug: msg="{{ output.stdout }}"
-
-- debug: msg="{{ output.stderr }}"
+    - copy: 
+        content: "{{ output.stdout[0] }}"
