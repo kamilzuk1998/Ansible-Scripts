@@ -1,0 +1,21 @@
+---
+- name: 'ASA Config'
+  hosts: all
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Show contexts of the ASA
+      asa_command:
+        commands:
+          - changeto system
+          - show context
+        provider:
+          username: "kamil.zuk"
+          password: "January18"
+          authorize: yes
+          auth_pass: "January18"
+      register: output
+
+- debug: msg="{{ output.stdout }}"
+
+- debug: msg="{{ output.stderr }}"
