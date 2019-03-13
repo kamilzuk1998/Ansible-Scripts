@@ -24,6 +24,5 @@
       register: output
       until: result.stdout.find("Total active Security Contexts") != -1
       retries: 3
-      delay:10
       register: output
     - debug: var=output.stdout_lines
