@@ -22,7 +22,7 @@
           - changeto "{{ item }}"
           - show context
       register: output
-      until: result.stdout.find("Total active Security Contexts: 82") != -1
+      until: result.stdout.find("Total active Security Contexts") != -1
       retries: 3
       delay:10
       register: output
