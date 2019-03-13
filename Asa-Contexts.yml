@@ -16,3 +16,14 @@
           auth_pass: "January18"
       register: output
     - debug: var=output.stdout_lines
+    - name : Backing up all contexts
+      asa_command:
+        commands:
+          - changeto "{{ item }}"
+          - show context
+      register: output
+      until: result.stdout.find("Total active Security Contexts: 82") != -1
+      retries: 3
+      delay:10
+      register: output
+    - debug: var=output.stdout_lines
