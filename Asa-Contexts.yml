@@ -14,8 +14,6 @@
           password: "January18"
           authorize: yes
           auth_pass: "January18"
-      register: {{ item }}
-    - debug: var=output.stdout_lines
     - name : Backing up all contexts
       asa_command:
         commands:
@@ -24,5 +22,5 @@
       register: output
       until: result.stdout.find("Total active Security Contexts") != -1
       retries: 3
-      register: output
+      register: {{ item }}
     - debug: var=output.stdout_lines
