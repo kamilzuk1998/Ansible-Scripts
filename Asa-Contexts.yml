@@ -14,7 +14,7 @@
           password: "January18"
           authorize: yes
           auth_pass: "January18"
-      register: output
+      register: {{ item }}
     - debug: var=output.stdout_lines
     - name : Backing up all contexts
       asa_command:
