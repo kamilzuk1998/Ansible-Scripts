@@ -14,5 +14,5 @@
           password: "January18"
           authorize: yes
           auth_pass: "January18"
-          register: output
-          - debug: var=output.stdout_lines
+      register: output
+    - debug: var=output.stdout_lines
