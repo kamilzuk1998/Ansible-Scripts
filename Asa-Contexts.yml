@@ -20,4 +20,4 @@
       #until: output.stdout.split()|length < 2
       retries: 3
       delay: 30
-    - debug: var=output.stdout_lines|list
+    - debug: var=output.stdout_lines
