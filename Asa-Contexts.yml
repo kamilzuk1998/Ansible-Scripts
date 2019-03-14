@@ -17,4 +17,7 @@
       register: output
     #  with_lines:
      # - "{{ output.stdout_lines }}"
-    - debug: var=output.stdout_lines
+- debug:
+    msg="{{item}}"
+  with_items: "{{ dbtables_data.stdout_lines | default([]) }}"
+    #- debug: var=output.stdout_lines
