@@ -15,9 +15,5 @@
           authorize: yes
           auth_pass: "January18"
       register: output
-      until: output.stdout_lines|length < 2
-      # this works:
-      #until: output.stdout.split()|length < 2
-      retries: 3
-      delay: 30
+      with_items: output
     - debug: var=output.stdout_lines
