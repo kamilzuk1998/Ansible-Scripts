@@ -15,4 +15,4 @@
           authorize: yes
           auth_pass: "January18"
       register: output
-    - debug: var=output.stdout | from_json | grep "Context Name"
+    - debug: var=output.stdout_lines|list
