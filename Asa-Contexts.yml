@@ -8,13 +8,16 @@
       asa_command:
         commands:
           - changeto system
-          - show context
+          - show run context | inc ^context
         provider:
           username: "kamil.zuk"
           password: "January18"
           authorize: yes
           auth_pass: "January18"
       register: output
-    - copy: 
-        content: "{{ output.stdout[0] }}"
-        dest: "~/LIST OF CONTEXTS ON {{ lookup('pipe', 'date +%Y%m%d-%H%M') }} FOR HOSTS {{ inventory_hostname }}"
+      until: output.stdout_lines|length < 2
+      # this works:
+      #until: output.stdout.split()|length < 2
+      retries: 3
+      delay: 30
+    - debug: var=output.stdout_lines|list
