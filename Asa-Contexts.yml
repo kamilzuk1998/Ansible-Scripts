@@ -15,5 +15,5 @@
           authorize: yes
           auth_pass: "January18"
       register: output
-      with_items: output
+      with_items: var=output
     - debug: var=output.stdout_lines
