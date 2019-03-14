@@ -19,4 +19,4 @@
      # - "{{ output.stdout_lines }}"
     - debug:
       msg= " {{item}} "
-      with_items: "{{ output.stdout_lines }}" #var=output.stdout_lines
+        with_items: "{{ output.stdout_lines }}" #var=output.stdout_lines
