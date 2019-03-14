@@ -15,5 +15,6 @@
           authorize: yes
           auth_pass: "January18"
       register: output
-      with_lines: var=output
+      with_lines:
+      - "{{ output.stdout_lines }}"
     - debug: var=output.stdout_lines
