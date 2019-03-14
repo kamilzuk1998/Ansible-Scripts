@@ -17,4 +17,4 @@
       register: output
       with_lines:
       - "{{ output.stdout_lines }}"
-    - debug: var=output.stdout_lines
+   # - debug: var=output.stdout_lines
