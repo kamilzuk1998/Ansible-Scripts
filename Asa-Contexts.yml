@@ -15,7 +15,6 @@
           authorize: yes
           auth_pass: "January18"
       register: output
-    - debug: msg=" {{ var=output.stdout_lines}} "
-        with_items: " {{output.results }} "
-      loop_control:
-        label: 'CONTEXT'
+    - copy: 
+        content: "{{ output.stdout[0] }}"
+        dest: "~/CONTEXTS ON DATE{{ lookup('pipe', 'date +%Y%m%d-%H%M') }} OF HOSTS {{ inventory_hostname }}"
