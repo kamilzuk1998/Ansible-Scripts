@@ -4,6 +4,7 @@
   connection: local
   gather_facts: false
   tasks:
+  
     - name: retrieve contexts of the ASA of the ASA
       asa_command:
         commands:
@@ -17,9 +18,9 @@
       register: output
     - debug: var=output.stdout_lines
     
-   - name: switch to contexts and backup
-     asa_commdand:
-       commands:
-         - changeto {{item.key}}      
-     with_items:
-     - "{{ output.results }}"
+    - name: switch to contexts and backup
+      asa_commdand:
+        commands:
+          - changeto {{item.key}}      
+      with_items:
+      - "{{ output.results }}"
