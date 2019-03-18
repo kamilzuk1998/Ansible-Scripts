@@ -23,5 +23,5 @@
         commands:
           - changeto {{ item.value }}    
         debug:
-          msg: {{ item.value}}
+          msg: "{{ item.value }}"
      # with_items: "{{ output.stdout_lines }}"
