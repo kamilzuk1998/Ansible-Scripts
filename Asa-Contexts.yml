@@ -17,9 +17,9 @@
       register: output
     - debug: var=output.stdout_lines
     
-    - name: Switch to Contexts and backup
-      asa_commdand:
-        commands:
-          - changeto {{item.key}}      
-      with_items:
-      - "{{ output.results }}"
+   - name: switch to contexts and backup
+     asa_commdand:
+       commands:
+         - changeto {{item.key}}      
+     with_items:
+     - "{{ output.results }}"
