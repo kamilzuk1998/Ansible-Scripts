@@ -22,6 +22,6 @@
       asa_command:
         commands:
           - changeto {{ vars[output.stdout_lines] }}    
-        debug:
-          msg: "{{ vars[output.stdout_lines] }}"
+      #  debug:
+       #   msg: "{{ vars[output.stdout_lines] }}"
       with_items: "{{ vars[output.stdout_lines] }}"
