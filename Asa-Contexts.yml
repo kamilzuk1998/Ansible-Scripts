@@ -24,4 +24,4 @@
           - changeto {{ item.value }}    
         debug:
           msg: "{{ item.value }}"
-      with_dict: "{{ output.stdout_lines }}"
+      with_dict: "{{ vars[output.stdout_lines] }}"
