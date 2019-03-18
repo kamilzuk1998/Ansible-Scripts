@@ -19,7 +19,7 @@
     - debug: var=output.stdout_lines
     
     - name: switch to contexts and backup
-      asa_commdand:
+      asa_command:
         commands:
           - changeto {{item.key}}      
       with_items:
