@@ -23,4 +23,4 @@
         commands:
           - changeto {{item.key}}      
       with_items:
-      - "{{ output.results }}"
+      - "{{ output }}"
