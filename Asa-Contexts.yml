@@ -16,10 +16,10 @@
           authorize: yes
           auth_pass: "January18"
       register: output
-    - debug: var=output.stdout_lines
+    #- debug: var=output.stdout_lines
     
     - name: switch to contexts and backup
       asa_command:
         commands:
-          - changeto {{ output.stdout_lines }}      
+          - changeto {{ item }}      
       with_items: "{{ output.stdout_lines }}"
