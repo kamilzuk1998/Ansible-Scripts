@@ -22,5 +22,4 @@
       asa_command:
         commands:
           - changeto {{item.key}}      
-      with_items:
-      - "{{ output }}"
+      with_items: "{{ output.stdout_lines }}"
