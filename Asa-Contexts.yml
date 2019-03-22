@@ -3,8 +3,9 @@
   hosts: all
   connection: local
   gather_facts: false
+  vars_files:
+  - "~/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
   tasks:
-  
     - name: retrieve contexts of the ASA of the ASA
       asa_command:
         commands:
