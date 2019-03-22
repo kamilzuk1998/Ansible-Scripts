@@ -17,7 +17,7 @@
           auth_pass: "January18"
       register: output
     - copy: 
-        content: "{{ output.stdout[0] }}"
+        content: "{{ output.stdout_lines }}"
         dest: "~/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
     #- debug: var=output.stdout_lines
     
