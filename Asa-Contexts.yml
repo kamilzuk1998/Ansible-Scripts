@@ -28,7 +28,7 @@
     - name: switch to contexts and backup
       asa_command:
         commands:
-          - changeto {{var=context}}    
+          - changeto {{ context }}    
         debug:
           msg: "{{ context }}"
-      with_items: "{{ var=context }}"
+      with_items: "{{ context }}"
