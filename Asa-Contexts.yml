@@ -2,7 +2,7 @@
 - name: 'ASA Config'
   hosts: all
   connection: local
-  gather_facts: true
+  gather_facts: false
   tasks:
     - name: retrieve contexts of the ASA of the ASA
       asa_command:
@@ -17,7 +17,7 @@
       register: output
       
     - set_fact:
-        context={{ output.stdout_lines }}
+        context={{ output.stdout[0] }}
 #    - copy: 
 #        content: "{{ output.stdout_lines }}"
 #        dest: "~/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
