@@ -18,7 +18,7 @@
       register: output
     - copy: 
         content: "{{ output.stdout[0] }}"
-        dest: "~/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Top-{{ inventory_hostname }}"
+        dest: "~/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
     #- debug: var=output.stdout_lines
     
   #  - name: switch to contexts and backup
