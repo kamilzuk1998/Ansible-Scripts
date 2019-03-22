@@ -29,6 +29,6 @@
       asa_command:
         commands:
           - changeto {{ context }}    
-        debug:
-          msg: "{{ context }}"
-      with_items: "{{ context }}"
+    #    debug:
+    #      msg: "{{ context }}"
+    #  with_items: "{{ context }}"
