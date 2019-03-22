@@ -23,10 +23,12 @@
 #        dest: "~/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
     - debug: msg="{{ context }}"
     
-   # - name: switch to contexts and backup
-   #   asa_command:
-   #     commands:
-   #       - changeto {{ context }}    
-    #    debug:
-    #      msg: "{{ context }}"
+    - name: switch to contexts and backup
+      asa_command:
+        commands:
+          - changeto {{ context }}
+        register: change
+          
+        debug:
+          msg: "var=change.stdout_lines"
     #  with_items: "{{ context }}"
