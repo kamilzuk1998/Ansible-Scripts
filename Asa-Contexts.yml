@@ -17,7 +17,7 @@
       register: output
       
     - set_fact:
-        context={{ output.stdout[0] }}
+        context={{ output.stdout[2] }}
 #    - copy: 
 #        content: "{{ output.stdout_lines }}"
 #        dest: "~/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
