@@ -25,7 +25,7 @@
     - name: switch to contexts and backup
       asa_command:
         commands:
-          - changeto {{ output.stdout_lines }}    
+          - changeto {{ output }}    
         debug:
-          msg: "{{ output.stdout_lines }}"
+          msg: "{{ output }}"
       with_items: "{{ output.stdout_lines }}"
