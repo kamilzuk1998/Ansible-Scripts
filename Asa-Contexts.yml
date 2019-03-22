@@ -27,11 +27,11 @@
       asa_command:
         commands:
           - changeto {{ context }}
-        provider:
-          username: "kamil.zuk"
-          password: "January18"
-          authorize: yes
-          auth_pass: "January18"
+       # provider:
+       #   username: "kamil.zuk"
+       #   password: "January18"
+       #   authorize: yes
+       #   auth_pass: "January18"
        # register: change
           
        # debug:
