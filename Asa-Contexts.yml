@@ -17,6 +17,9 @@
           authorize: yes
           auth_pass: "January18"
       register: output
+      
+    - set_fact:
+        context={{ output.stdout_lines }}
     - copy: 
         content: "{{ output.stdout_lines }}"
         dest: "~/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
@@ -25,7 +28,7 @@
     - name: switch to contexts and backup
       asa_command:
         commands:
-          - changeto {{ output }}    
+          - changeto {{var=context}}    
         debug:
-          msg: "{{ output }}"
-      with_items: "{{ output.stdout_lines }}"
+          msg: "{{ context }}"
+      with_items: "{{ var=context }}"
