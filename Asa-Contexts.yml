@@ -20,12 +20,12 @@
     - copy: 
         content: "{{ output.stdout_lines }}"
         dest: "~/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
-    - debug: var=context_file
+    #- debug: var=context_file
     
-  #  - name: switch to contexts and backup
-     # asa_command:
-      #  commands:
-       #   - changeto {{ vars[output.stdout_lines] }}    
-      #  debug:
-       #   msg: "{{ vars[output.stdout_lines] }}"
-      #with_items: "{{ vars[output.stdout_lines] }}"
+    - name: switch to contexts and backup
+      asa_command:
+        commands:
+          - changeto {{ output.stdout_lines }}    
+        debug:
+          msg: "{{ output.stdout_lines }}"
+      with_items: "{{ output.stdout_lines }}"
