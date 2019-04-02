@@ -23,7 +23,7 @@
     - name: switch to contexts
       asa_command:
         commands:
-          - changeto {{ context }}
+          - changeto {{ item }}
       with_lines: cat /var/lib/awx/Contexts{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}
       
       
