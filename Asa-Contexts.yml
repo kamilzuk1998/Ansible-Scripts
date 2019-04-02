@@ -19,7 +19,11 @@
     - copy: 
         content: "{{ output.stdout_lines }}"
         dest: "/var/lib/awx/Contexts{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
-    - debug: msg="{{ item }}"
+    #- debug: msg="{{ item }}"
+    - name: switch to contexts
+      asa_command:
+        commands:
+          - changeto {{ context }}
       with_lines: cat /var/lib/awx/Contexts{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}
       
       
