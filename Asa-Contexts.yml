@@ -14,7 +14,7 @@
           password: "January18"
           authorize: yes
           auth_pass: "January18"
-          #context: all
+          context: all
       register: output
 
    # - copy: 
