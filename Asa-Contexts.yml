@@ -18,9 +18,9 @@
 
     - copy: 
         content: "{{ output.stdout_lines }}"
-        dest: "~/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
+        dest: "/var/lib/awx/Contexts{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
     - debug: msg="{{ item }}"
-      with_lines: cat ~/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}
+      with_lines: cat /var/lib/awx/Contexts{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}
       
       
 #    - set_fact:
