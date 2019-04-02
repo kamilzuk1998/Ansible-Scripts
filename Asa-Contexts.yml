@@ -8,18 +8,18 @@
       asa_command:
         commands:
           #- changeto system
-          - show run context #| inc ^context
+          - show run #context | inc ^context
         provider:
           username: "kamil.zuk"
           password: "January18"
           authorize: yes
           auth_pass: "January18"
-          context: all
+          #context: all
       register: output
 
-    - copy: 
-        content: "{{ output.stdout_lines }}"
-        dest: "/var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
+   # - copy: 
+   #     content: "{{ output.stdout_lines }}"
+    #    dest: "/var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
     #- debug: msg="{{ item }}"
     #- name: switch to contexts
     #  asa_command:
@@ -28,7 +28,7 @@
      # with_lines: cat /var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}  
      # register: contexts
       
-    - debug: msg="{{ contexts.stdout_lines }}"
+    - debug: msg="{{ output.stdout_lines }}"
       
       
 #    - set_fact:
