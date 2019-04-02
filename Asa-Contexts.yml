@@ -9,12 +9,12 @@
         commands:
           #- changeto system
           - show run context #| inc ^context
-        context: all
         provider:
           username: "kamil.zuk"
           password: "January18"
           authorize: yes
           auth_pass: "January18"
+          context: all
       register: output
 
     - copy: 
