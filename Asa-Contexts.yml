@@ -4,7 +4,7 @@
   connection: local
   gather_facts: false
   tasks:
-    - name: retrieve contexts of the ASA of the ASA
+    - name: retrieve contexts of the ASA 
       asa_command:
         commands:
           #- changeto system
