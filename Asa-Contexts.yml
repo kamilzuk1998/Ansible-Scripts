@@ -15,18 +15,23 @@
           authorize: yes
           auth_pass: "January18"
       register: output
+
+    - copy: 
+        content: "{{ output.stdout_lines }}"
+        dest: "~/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
       
-    - set_fact:
-        context={{ output.stdout_lines }}
+      
+#    - set_fact:
+#        context={{ output.stdout_lines }}
 #    - copy: 
 #        content: "{{ output.stdout_lines }}"
 #        dest: "~/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
-    - debug: msg="{{ context }}"
+#    - debug: msg="{{ context }}"
     
-    - name: switch to contexts
-      asa_command:
-        commands:
-          - changeto {{ context }}
+#    - name: switch to contexts
+#      asa_command:
+#        commands:
+#          - changeto {{ context }}
        # provider:
        #   username: "kamil.zuk"
        #   password: "January18"
