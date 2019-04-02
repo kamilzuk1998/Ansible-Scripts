@@ -8,7 +8,7 @@
       asa_command:
         commands:
           #- changeto system
-          - show run #context | inc ^context
+          - show run context #| inc ^context
         provider:
           username: "kamil.zuk"
           password: "January18"
