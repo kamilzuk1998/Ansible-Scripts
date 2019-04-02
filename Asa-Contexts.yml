@@ -8,13 +8,13 @@
       asa_command:
         commands:
           #- changeto system
-          - show run context #| inc ^context
+          - show context #| inc ^context
         provider:
           username: "kamil.zuk"
           password: "January18"
           authorize: yes
           auth_pass: "January18"
-        #  context: all
+          context: all
       register: output
 
    # - copy: 
