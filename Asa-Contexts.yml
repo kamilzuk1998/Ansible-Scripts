@@ -14,17 +14,18 @@
           password: "January18"
           authorize: yes
           auth_pass: "January18"
+      when: status != 'build'
       register: output
 
     - copy: 
         content: "{{ output.stdout_lines }}"
         dest: "/var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
     #- debug: msg="{{ item }}"
-    - name: switch to contexts
-      asa_command:
-        commands:
-          - changeto {{ item }}
-      with_lines: cat /var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}
+    #- name: switch to contexts
+     # asa_command:
+      #  commands:
+        #  - changeto {{ item }}
+      #with_lines: cat /var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}
       
       
 #    - set_fact:
