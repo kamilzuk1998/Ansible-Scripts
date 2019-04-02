@@ -22,8 +22,8 @@
     #- debug: msg="{{ item }}"
     - name: switch to contexts
       asa_command:
-        context:
-          -{{ item }}
+        context: all
+          #-{{ item }}
       with_lines: cat /var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}  
       register: contexts
       
