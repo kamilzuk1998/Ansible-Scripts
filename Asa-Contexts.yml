@@ -7,8 +7,9 @@
     - name: retrieve contexts of the ASA of the ASA
       asa_command:
         commands:
-          - changeto system
-          - show run context | inc ^context
+          #- changeto system
+          - show run context #| inc ^context
+        context: all
         provider:
           username: "kamil.zuk"
           password: "January18"
@@ -20,12 +21,12 @@
         content: "{{ output.stdout_lines }}"
         dest: "/var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
     #- debug: msg="{{ item }}"
-    - name: switch to contexts
-      asa_command:
-        context: all
+    #- name: switch to contexts
+    #  asa_command:
+     #   context: all
           #-{{ item }}
-      with_lines: cat /var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}  
-      register: contexts
+     # with_lines: cat /var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}  
+     # register: contexts
       
     - debug: msg="{{ contexts.stdout_lines }}"
       
