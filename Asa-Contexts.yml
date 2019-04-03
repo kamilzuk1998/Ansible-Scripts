@@ -15,18 +15,26 @@
           authorize: yes
           auth_pass: "January18"
           context: all
-      register: output
-
-    - copy: 
-        content: "{{ output.stdout_lines }}"
-        dest: "/var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
-    - name: switch to contexts
-      asa_command:
-        commands: 
-          -changeto "{{ item }}"
-      with_lines: cat /var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}  
+      register: contexts
+      
+    - name: Create Hosts
+      add_host:
+        name: "{{ contexts.context_name }}"
+        group: asa_contexts
+        ansible_host: "{{ some_var_with_connection_ip }}"
+        context: "{{ context name }}"
+        any_other_hostvars: values
+      loop: contexts
+    #- copy: 
+     #   content: "{{ output.stdout_lines }}"
+     #   dest: "/var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
+   # - name: switch to contexts
+   #   asa_command:
+   #     commands: 
+   #       -changeto "{{ item }}"
+   #   with_lines: cat /var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}  
      
-    - debug: msg="{{ item }}"
+   # - debug: msg="{{ item }}"
     
 
    #   register: contexts
