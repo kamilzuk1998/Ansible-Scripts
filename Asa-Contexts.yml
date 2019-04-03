@@ -16,21 +16,29 @@
           auth_pass: "January18"
       register: contexts
       
-    - name: switch contexts 
-      asa_command:
-        commands:
-          - show run
-        context:  "{{ contexts.stdout_lines }}"
-      loop: "{{ contexts.stdout_lines }}"
+    - name: Create Hosts
+      add_host:
+        name: "{{ contexts.context_name }}"
+        group: asa_contexts
+        ansible_host: "{{ some_var_with_connection_ip }}"
+        context: "{{ context_name }}"
+        any_other_hostvars: values
+      loop: contexts
       
-   # - name: Create Hosts
-    #  add_host:
-     #   name: "{{ contexts.context_name }}"
-      #  group: asa_contexts
-       # ansible_host: "{{ some_var_with_connection_ip }}"
-       # context: "{{ context name }}"
-       # any_other_hostvars: values
-      #loop: contexts
+      
+     - name: backup contexts
+       hosts: asa_contexts
+       connection: local
+       gather_facts: false
+       tasks:
+        - name: backup each context
+          asa_command:
+            commands:
+              - changeto "{{ context_name }}"
+              - show run
+              
+              
+         
     #- copy: 
      #   content: "{{ output.stdout_lines }}"
      #   dest: "/var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
