@@ -27,9 +27,8 @@
     #- copy: 
      #   content: "{{ output.stdout_lines }}"
      #   dest: "/var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
-    - name: switch to contexts
       tasks:
-        - name: switching
+        - name: switch to contexts
           asa_command:
             commands: 
               -changeto {{ contexts.stdout_lines }}
