@@ -20,7 +20,7 @@
       asa_command:
         commands:
           - show run
-        context:  "{{ contexts }}"
+        context:  "{{ contexts.stdout_lines }}"
       loop: "{{ contexts.stdout_lines }}"
       
    # - name: Create Hosts
