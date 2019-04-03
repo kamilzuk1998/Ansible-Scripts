@@ -16,6 +16,12 @@
           auth_pass: "January18"
       register: contexts
       
+      - name: switch to contexts
+        asa_command:
+          commands: 
+            -changeto {{ contexts.stdout_lines }}
+        loop: "{{ contexts.stdout_lines }}"
+      
    # - name: Create Hosts
     #  add_host:
      #   name: "{{ contexts.context_name }}"
@@ -27,12 +33,6 @@
     #- copy: 
      #   content: "{{ output.stdout_lines }}"
      #   dest: "/var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}"
-      tasks:
-        - name: switch to contexts
-          asa_command:
-            commands: 
-              -changeto {{ contexts.stdout_lines }}
-          loop: "{{ contexts.stdout_lines }}"
           
    #   with_lines: cat /var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}  
      
