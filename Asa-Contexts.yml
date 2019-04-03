@@ -16,11 +16,11 @@
           auth_pass: "January18"
       register: contexts
       
-      - name: switch to contexts
-        asa_command:
-          commands: 
-            -changeto {{ contexts.stdout_lines }}
-        loop: "{{ contexts.stdout_lines }}"
+    - name: switch to contexts
+      asa_command:
+        commands: 
+          -changeto {{ contexts.stdout_lines }}
+      loop: "{{ contexts.stdout_lines }}"
       
    # - name: Create Hosts
     #  add_host:
