@@ -17,7 +17,7 @@
       register: contexts
       
     - name: switch to contexts
-      asa_command:
+      ios_command:
         commands: 
           -changeto {{ contexts.stdout_lines }}
       loop: "{{ contexts.stdout_lines }}"
