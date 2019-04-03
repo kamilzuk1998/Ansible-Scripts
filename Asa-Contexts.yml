@@ -14,8 +14,9 @@
           password: "January18"
           authorize: yes
           auth_pass: "January18"
-          context: all
       register: contexts
+      
+      - debug: msg="{{ contexts.stdout_lines }}"
       
     - name: Create Hosts
       add_host:
