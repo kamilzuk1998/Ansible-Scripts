@@ -18,7 +18,8 @@
       
     - name: switch to contexts
       asa_command:
-        - show run
+        commands:
+          - show run
       context:  all
       loop: "{{ contexts.stdout_lines }}"
       
