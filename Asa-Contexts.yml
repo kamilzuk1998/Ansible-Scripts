@@ -14,8 +14,7 @@
           password: "January18"
           authorize: yes
           auth_pass: "January18"
-      register: contexts
-      wantlist=true 
+      register: contexts 
       
     - name: Create Hosts
       add_host:
