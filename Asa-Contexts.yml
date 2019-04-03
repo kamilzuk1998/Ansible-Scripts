@@ -18,8 +18,7 @@
       
     - name: switch to contexts
       asa_command:
-        commands: 
-          -changeto {{ contexts.stdout_lines }}
+        context:  {{ contexts.stdout_lines }}
       loop: "{{ contexts.stdout_lines }}"
       
    # - name: Create Hosts
