@@ -16,7 +16,7 @@
           auth_pass: "January18"
       register: contexts
       
-      - debug: msg="{{ contexts.stdout_lines }}"
+    - debug: msg="{{ contexts.stdout_lines }}"
       
     - name: Create Hosts
       add_host:
