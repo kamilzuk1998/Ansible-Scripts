@@ -33,7 +33,7 @@
           asa_command:
             commands: 
               -changeto {{ contexts.stdout_lines }}
-           loop: "{{ contexts.stdout_lines }}"
+          loop: "{{ contexts.stdout_lines }}"
           
    #   with_lines: cat /var/lib/awx/Contexts/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Context-of-{{ inventory_hostname }}  
      
