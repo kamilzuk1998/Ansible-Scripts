@@ -25,16 +25,16 @@
         any_other_hostvars: values
       loop: contexts
       
-    - name: backup contexts 
-      hosts: asa_contexts
-      connection: local
-      gather_facts: false
-      tasks:
-       - name: backup each context
-         asa_command:
-           commands:
-             - changeto "{{ context_name }}"
-             - show run
+- name: backup contexts 
+  hosts: asa_contexts
+  connection: local
+  gather_facts: false
+  tasks:
+   - name: backup each context
+     asa_command:
+       commands:
+         - changeto "{{ context_name }}"
+         - show run
               
               
          
