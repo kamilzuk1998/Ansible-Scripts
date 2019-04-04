@@ -23,8 +23,10 @@
         ansible_host: "{{ some_var_with_connection_ip }}"
         context: "{{ context_name }}"
         any_other_hostvars: values
-      loop: var=contexts.stdout_lines
-      
+   
+   - debug:
+       var: contexts
+       
 - name: backup contexts 
   hosts: asa_contexts
   connection: local
