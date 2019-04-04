@@ -15,6 +15,9 @@
           authorize: yes
           auth_pass: "January18"
       register: contexts 
+
+      debug:
+        var: contexts
       
     - name: Create Hosts
       add_host:
@@ -24,8 +27,6 @@
         context: "{{ context_name }}"
         any_other_hostvars: values
    
-   - debug:
-       var: contexts
        
 - name: backup contexts 
   hosts: asa_contexts
