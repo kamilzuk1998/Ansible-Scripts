@@ -17,7 +17,7 @@
       register: contexts 
     - copy: 
         content: "{{ contexts.stdout[0] }}"
-        dest: "~/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Contexts" }}"
+        dest: "~/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Contexts }}"
     
     - name: Create Hosts
       add_host:
