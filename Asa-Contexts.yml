@@ -23,7 +23,7 @@
       add_host:
         name: "ADMIN-CONTEXT"
         group: asa_contexts
-        ansible_host: all
+        hosts: all
         context: "{{ contexts.stdout_lines }}"
         any_other_hostvars: values
       run_once: true        
