@@ -26,6 +26,7 @@
         ansible_host: all
         context: "{{ contexts.stdout_lines }}"
         any_other_hostvars: values
+      with_items: "{{ contexts.stdout_lines }}"
       run_once: true
 
 #- name: 'Backup Contexts'
