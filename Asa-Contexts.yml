@@ -22,21 +22,21 @@
         context_name: "{{ contexts.stdout_lines[] }}"  
     - debug: "{{ context_name }}" 
     
-    - name: backup each context
-      asa_command:
-        commands:
-          - changeto "{{ context_name }}"
-          - show run
-      with_items: "{{ contexts.stdout_lines }}"         
+  #  - name: backup each context
+  #    asa_command:
+  #      commands:
+  #        - changeto "{{ context_name }}"
+  #        - show run
+  #    with_items: "{{ contexts.stdout_lines }}"         
               
-  #  - name: Create Hosts
-  #    add_host:
-  #      name: "{{ contexts.context_name }}"
-  #      group: asa_contexts
-  #      ansible_host: "{{ some_var_with_connection_ip }}"
-  #      context: "{{ context_name }}"
-  #      any_other_hostvars: values
-    #  loop: var=contexts.stdout_lines
+    - name: Create Hosts
+      add_host:
+        name: "{{ contexts.context_name }}"
+        group: asa_contexts
+        ansible_host: "{{ some_var_with_connection_ip }}"
+        context: "{{ context_name }}"
+        any_other_hostvars: values
+      with_items: "{{ contexts.stdout_lines }}"
     
    # - debug: var= contexts
          
