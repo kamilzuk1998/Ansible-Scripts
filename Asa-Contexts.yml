@@ -33,17 +33,17 @@
   hosts: asa_contexts
   connection: local
   gather_facts: false
-#  tasks:
-#    - name: retrieve contexts of the ASA 
-#      asa_command:
-#        commands:
-#          - show run
+  tasks:
+    - name: retrieve contexts of the ASA 
+      asa_command:
+        commands:
+          - show run
 #        provider:
 #          username: "kamil.zuk"
 #          password: "January18"
 #          authorize: yes
 #          auth_pass: "January18"
-#      register: output 
+      register: output 
                
   #  - name: backup each context
   #    asa_command:
