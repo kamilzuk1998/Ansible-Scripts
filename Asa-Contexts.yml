@@ -19,7 +19,7 @@
     
     - name: Create Hosts
       add_host:
-        name: "{{ contexts.context_name }}"
+        name: "{{ contexts.stdout_lines }}"
         group: asa_contexts
         ansible_host: "{{ some_var_with_connection_ip }}"
         context: "{{ contexts.stdout_lines }}"
