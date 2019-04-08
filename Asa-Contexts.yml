@@ -32,7 +32,6 @@
     
    # - debug: var= contexts
        
-- name: backup contexts 
    - name: backup each context
      asa_command:
        commands:
