@@ -27,7 +27,7 @@
         commands:
           - changeto "{{ context_name }}"
           - show run
-      with items: "{{ context_name.stdout_lines }}"         
+      with_items: "{{ context_name.stdout_lines }}"         
               
   #  - name: Create Hosts
   #    add_host:
