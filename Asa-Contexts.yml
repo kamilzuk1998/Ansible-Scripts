@@ -24,7 +24,7 @@
         name: "test"
         group: asa_contexts
         ansible_host: all
-        context: "62.25.81.100"
+        context: "{{ contexts.stdout_lines }}"
         any_other_hostvars: values
       run_once: true        
       with_items: "{{ contexts.stdout_lines }}"
@@ -33,17 +33,17 @@
   hosts: asa_contexts
   connection: local
   gather_facts: false
-  tasks:
-    - name: retrieve contexts of the ASA 
-      asa_command:
-        commands:
-          - show run
-        provider:
-          username: "kamil.zuk"
-          password: "January18"
-          authorize: yes
-          auth_pass: "January18"
-      register: output 
+#  tasks:
+#    - name: retrieve contexts of the ASA 
+#      asa_command:
+#        commands:
+#          - show run
+#        provider:
+#          username: "kamil.zuk"
+#          password: "January18"
+#          authorize: yes
+#          auth_pass: "January18"
+#      register: output 
                
   #  - name: backup each context
   #    asa_command:
