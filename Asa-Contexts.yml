@@ -23,7 +23,7 @@
       add_host:
         name: "ADMIN-CONTEXT"
         group: asa_contexts
-        hosts: all
+        hosts: "62.25.81.100"
         context: "{{ contexts.stdout_lines }}"
         any_other_hostvars: values
       run_once: true        
