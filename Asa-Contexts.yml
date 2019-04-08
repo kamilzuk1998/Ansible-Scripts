@@ -21,12 +21,12 @@
     
     - name: Create Hosts
       add_host:
-        name: "{{ contexts.stdout_lines[0] }}"
+        name: "{{ contexts.stdout_lines[1] }}"
         group: asa_contexts
         ansible_host: all
-        context: "{{ contexts.stdout_lines[0] }}"
+        context: "{{ contexts.stdout_lines[1] }}"
         any_other_hostvars: values
-      with_items: "{{contexts.stdout_lines[] }}"
+      with_items: "{{contexts.stdout_lines[1] }}"
 
 #- name: 'Backup Contexts'
   #hosts: asa_contexts
