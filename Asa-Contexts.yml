@@ -16,18 +16,13 @@
           auth_pass: "January18"
       register: contexts 
     - debug: var=contexts
-    
-    - name: extracting vlan and ip from output
-      set_fact:
-        context_name: "{{ contexts.stdout_lines[] }}"  
-    - debug: "{{ context_name }}"      
-              
+
     - name: Create Hosts
       add_host:
         name: "{{ contexts.context_name }}"
         group: asa_contexts
         ansible_host: "{{ some_var_with_connection_ip }}"
-        context: "{{ context_name }}"
+        context: "{{ context_name.stdout_lines }}"
         any_other_hostvars: values
       with_items: "{{ contexts.stdout_lines }}"
     
