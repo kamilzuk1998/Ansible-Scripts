@@ -15,15 +15,21 @@
           authorize: yes
           auth_pass: "January18"
       register: contexts 
-    - debug: var=contexts
+#    - debug: var=contexts
     
-    - name: Create Hosts
-      add_host:
-        name: "{{ contexts.context_name }}"
-        group: asa_contexts
-        ansible_host: "{{ some_var_with_connection_ip }}"
-        context: "{{ context_name }}"
-        any_other_hostvars: values
+    - name: extracting vlan and ip from output
+
+      set_fact:
+
+      context_name: "{{ (contexts.stdout_lines.split(' ') | difference('')) }}"
+      - debug: context_name   
+  #  - name: Create Hosts
+  #    add_host:
+  #      name: "{{ contexts.context_name }}"
+  #      group: asa_contexts
+  #      ansible_host: "{{ some_var_with_connection_ip }}"
+  #      context: "{{ context_name }}"
+  #      any_other_hostvars: values
     #  loop: var=contexts.stdout_lines
     
    # - debug: var= contexts
