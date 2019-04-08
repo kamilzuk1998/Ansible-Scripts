@@ -17,7 +17,7 @@
       register: contexts 
 #    - debug: var=contexts
     
-    - name: extracting vlan and ip from output
+  - name: extracting vlan and ip from output
 
       set_fact:
 
