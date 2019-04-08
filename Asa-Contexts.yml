@@ -22,12 +22,12 @@
         context_name: "{{ contexts.stdout_lines[1] }}"  
     - debug: "{{ context_name }}" 
     
-    #- name: backup each context
-    #  asa_command:
-    #    commands:
-    #      - changeto "{{ (context_name) }}"
-     #     - show run
-     # loop: "{{ context_name }}"         
+    - name: backup each context
+      asa_command:
+        commands:
+          - changeto "{{ context_name }}"
+          - show run
+      with items: "{{ context_name.stdout_lines }}"         
               
   #  - name: Create Hosts
   #    add_host:
