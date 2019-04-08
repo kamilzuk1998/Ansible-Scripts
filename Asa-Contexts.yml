@@ -21,7 +21,7 @@
       add_host:
         name: "{{ contexts.stdout_lines[0] }}"
         group: asa_contexts
-        ansible_host: "{{ some_var_with_connection_ip }}"
+        ansible_host: all
         context: "{{ contexts.stdout_lines }}"
         any_other_hostvars: values
       with_items: "{{ contexts.stdout_lines }}"
