@@ -37,7 +37,7 @@
     - name: retrieve contexts of the ASA 
       asa_command:
         commands:
-          - show run
+          - show run context
 #        provider:
 #          username: "kamil.zuk"
 #          password: "January18"
