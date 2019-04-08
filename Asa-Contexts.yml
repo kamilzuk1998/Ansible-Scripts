@@ -15,9 +15,9 @@
           authorize: yes
           auth_pass: "January18"
       register: contexts 
-    - copy: 
-        content: "{{ contexts.stdout[0] }}"
-        dest: "~/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Contexts }}"
+    #- copy: 
+    #    content: "{{ contexts.stdout[0] }}"
+    #    dest: "~/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Contexts }}"
     
     - name: Create Hosts
       add_host:
