@@ -22,7 +22,7 @@
       set_fact:
 
       context_name: "{{ (contexts.stdout_lines.split(' ') | difference('')) }}"
-      - debug: context_name   
+    - debug: context_name   
   #  - name: Create Hosts
   #    add_host:
   #      name: "{{ contexts.context_name }}"
