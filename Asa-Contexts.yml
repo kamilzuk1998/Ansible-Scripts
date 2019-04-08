@@ -19,7 +19,7 @@
     
     - name: extracting vlan and ip from output
       set_fact:
-        context_name: "{{ contexts.stdout_lines | regex_replace('^([^ ]+).*', '\\1') }}"  
+        context_name: "{{ contexts.stdout_lines | regex_replace('^([^ ]+).*', '\\') }}"  
     - debug: "{{ context_name }}" 
     
     #- name: backup each context
