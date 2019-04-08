@@ -21,10 +21,10 @@
     
     - name: Create Hosts
       add_host:
-        name: "{{ contexts.stdout[0] }}"
+        name: "test"
         group: asa_contexts
         ansible_host: all
-        context: "{{ contexts.stdout_lines }}"
+        context: "62.25.81.100"
         any_other_hostvars: values
       run_once: true        
       with_items: "{{ contexts.stdout_lines }}"
