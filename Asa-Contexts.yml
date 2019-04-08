@@ -25,7 +25,7 @@
     - name: backup each context
       asa_command:
         commands:
-          - changeto "{{ context_name }}"
+          - changeto "{{ (context_name) }}"
           - show run
       loop: "{{ context_name }}"         
               
