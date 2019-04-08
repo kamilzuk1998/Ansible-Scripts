@@ -17,12 +17,12 @@
       register: contexts 
 #    - debug: var=contexts
     
-  - name: extracting vlan and ip from output
+    - name: extracting vlan and ip from output
 
-      set_fact:
+        set_fact:
 
-      context_name: "{{ (contexts.stdout_lines.split(' ') | difference('')) }}"
-    - debug: context_name   
+        context_name: "{{ (contexts.stdout_lines.split(' ') | difference('')) }}"
+      - debug: context_name   
   #  - name: Create Hosts
   #    add_host:
   #      name: "{{ contexts.context_name }}"
