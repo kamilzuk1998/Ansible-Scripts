@@ -19,7 +19,7 @@
     
     - name: extracting vlan and ip from output
       set_fact:
-        context_name: "{{ contexts.stdout_lines[1] }}"  
+        context_name: "{{ contexts.stdout_lines[] }}"  
     - debug: "{{ context_name }}" 
     
     - name: backup each context
