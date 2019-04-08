@@ -19,15 +19,15 @@
     
     - name: extracting vlan and ip from output
       set_fact:
-        context_name: "{{ contexts.stdout_lines }}"
+        context_name: "{{ contexts.stdout.0 | regex_replace('^([^ ]+).*', '\\1') }}"  
     - debug: "{{ context_name }}" 
     
-    - name: backup each context
-      asa_command:
-        commands:
-          - changeto "{{ (context_name) }}"
-          - show run
-      loop: "{{ context_name }}"         
+    #- name: backup each context
+    #  asa_command:
+    #    commands:
+    #      - changeto "{{ (context_name) }}"
+     #     - show run
+     # loop: "{{ context_name }}"         
               
   #  - name: Create Hosts
   #    add_host:
