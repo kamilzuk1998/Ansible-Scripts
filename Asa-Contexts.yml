@@ -29,21 +29,21 @@
       run_once: true        
       with_items: "{{ contexts.stdout_lines }}"
 
-#- name: 'Backup Contexts'
-  #hosts: asa_contexts
-  #connection: local
-  #gather_facts: false
-  #tasks:
-    #- name: retrieve contexts of the ASA 
-      #asa_command:
-        #commands:
-        #  - show run
-        #provider:
-          #username: "kamil.zuk"
-         ## password: "January18"
-        #  authorize: yes
-       #   auth_pass: "January18"
-      #register: output 
+- name: 'Backup Contexts'
+  hosts: asa_contexts
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: retrieve contexts of the ASA 
+      asa_command:
+        commands:
+          - show run
+        provider:
+          username: "kamil.zuk"
+          password: "January18"
+          authorize: yes
+          auth_pass: "January18"
+      register: output 
                
   #  - name: backup each context
   #    asa_command:
