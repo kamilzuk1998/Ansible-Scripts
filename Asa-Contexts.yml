@@ -21,7 +21,7 @@
     
     - name: Create Hosts
       add_host:
-        name: "{{ contexts.stdout_lines }}"
+        name: "{{ contexts.context_name}}"
         group: asa_contexts
         ansible_host: all
         context: "{{ contexts.stdout_lines }}"
