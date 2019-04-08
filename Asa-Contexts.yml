@@ -19,7 +19,7 @@
     
     - name: extracting vlan and ip from output
       set_fact:
-        context_name: "{{ (contexts.stdout_lines.split(' ') | difference('')) }}"
+        context_name: "{{ contexts.stdout_lines }}"
     - debug: "{{ context_name }}"   
   #  - name: Create Hosts
   #    add_host:
