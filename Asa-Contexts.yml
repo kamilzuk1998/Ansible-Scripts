@@ -6,9 +6,9 @@
   tasks:
     - name: retrieve contexts of the ASA 
       asa_command:
-        commands:
-          - changeto system
-          - show run context | inc ^context
+       #commands:
+       #   - changeto system
+       #   - show run context | inc ^context
         provider:
           username: "kamil.zuk"
           password: "January18"
