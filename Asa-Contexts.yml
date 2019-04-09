@@ -14,32 +14,33 @@
           password: "January18"
           authorize: yes
           auth_pass: "January18"
+          context: "{{ inventory_hostname }}"
       register: contexts 
     #- copy: 
     #    content: "{{ contexts.stdout[0] }}"
     #    dest: "~/{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}-Contexts }}"
     
-    - name: Create Hosts
-      add_host:
-        name: "ADMIN-CONTEXT"
-        group: asa_contexts
-        hosts: "62.25.81.100"
-        context: "{{ contexts.stdout_lines }}"
-        any_other_hostvars: values
-      run_once: true        
-      with_items: "{{ contexts.stdout_lines }}"
+   # - name: Create Hosts
+    #  add_host:
+    #    name: "ADMIN-CONTEXT"
+    #    group: asa_contexts
+    #    hosts: "62.25.81.100"
+    #    context: "{{ contexts.stdout_lines }}"
+    #    any_other_hostvars: values
+    #  run_once: true        
+    #  with_items: "{{ contexts.stdout_lines }}"
 
-- name: 'Backup Contexts'
-  hosts: asa_contexts
-  connection: local
-  gather_facts: false
-  tasks:
-    - name: retrieve contexts of the ASA 
-      asa_command:
-        commands:
-          - show run context
-#        provider:
-#          username: "kamil.zuk"
+#- name: 'Backup Contexts'
+  #hosts: asa_contexts
+  #connection: local
+  #gather_facts: false
+  #tasks:
+  #  - name: retrieve contexts of the ASA 
+  #    asa_command:
+  #      commands:
+  #        - show run context
+# #       provider:
+# #         username: "kamil.zuk"
 #          password: "January18"
 #          authorize: yes
 #          auth_pass: "January18"
