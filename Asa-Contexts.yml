@@ -16,6 +16,7 @@
           authorize: yes
           auth_pass: "January18"
           context: "{{ inventory_hostname }}"
+          backup: yes
       register: contexts 
     #- copy: 
     #    content: "{{ contexts.stdout[0] }}"
