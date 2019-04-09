@@ -6,7 +6,7 @@
   tasks:
     - name: retrieve contexts of the ASA 
       asa_config:
-        src: "templates/interfaces.j2"
+        #src: "templates/interfaces.j2"
        #commands:
        #   - changeto system
        #   - show run context | inc ^context
