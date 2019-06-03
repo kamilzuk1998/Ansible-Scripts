@@ -6,7 +6,6 @@
   tasks:
     - name: Add vlan to UCSM
       ucs_vlans:
-      hostname: 10.25.81.54
       username: ucspe
       password: ucspe
       name: vlan-test
