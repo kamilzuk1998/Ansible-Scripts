@@ -1,10 +1,11 @@
+
 ---
-- name: 'UCS Manager Emulator test.'
+- name: 'UCSM Test'
   hosts: all
   connection: local
   gather_facts: false
   tasks:
-    - name: Add VLAN to UCS Manager
+    - name: Add vlan to UCSM
       ucs_vlans:
       hostname: 10.25.81.54
       username: ucspe
