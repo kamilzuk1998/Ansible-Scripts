@@ -3,8 +3,6 @@
   hosts: all
   connection: local
   gather_facts: false
-  roles:
-  - common
    tasks:
     - name: Add VLAN to UCS Manager
       ucs_vlans:
