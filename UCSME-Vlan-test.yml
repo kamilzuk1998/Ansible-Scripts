@@ -1,1 +1,17 @@
-
+---
+- name: 'UCS Manager Emulator test.'
+  hosts: all
+  connection: local
+  gather_facts: false
+  roles:
+  - common
+   tasks:
+    - name: Add VLAN to UCS Manager
+      ucs_vlans:
+      hostname: 10.25.81.54
+      username: ucspe
+      password: ucspe
+      name: vlan-test
+      id: '99'
+      native: 'no'
+      
