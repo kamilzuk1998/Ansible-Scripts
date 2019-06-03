@@ -1,7 +1,6 @@
 
 ---
-- name: 'UCSM Test'
-  hosts: all
+- hosts: all
   connection: local
   gather_facts: false
   tasks:
