@@ -19,5 +19,5 @@
         fabric: A
         vlans_list:
         - name: vlan-test
-        native: no
+        native: 'no'
         
