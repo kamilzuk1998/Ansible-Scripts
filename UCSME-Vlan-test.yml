@@ -23,4 +23,12 @@
         vlans_list:
         - name: vlan-test
           native: 'no'
-        
+    
+    - name: add vlan to vlan Group.
+      ucs_vlan_to_group:
+        hostname: 10.25.81.54
+        username: ucspe
+        password: ucspe
+        vlangroup: DMZ-Group
+        vlanname: vlan-test
+        state: present
