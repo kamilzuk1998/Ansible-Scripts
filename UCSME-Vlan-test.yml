@@ -15,9 +15,12 @@
     
     - name: add vlan to vNIC Template
       ucs_vnic_template:
+      #  hostname: 10.25.81.54
+      #  username: ucspe
+      #  password: ucspe
         name: DMZ_FabricA
         fabric: A
         vlans_list:
         - name: vlan-test
-        native: 'no'
+          native: 'no'
         
