@@ -21,7 +21,8 @@
         vlangroup: DMZ-Group
         vlanname: vlan-test
         state: present
-    
+
+    #- This will ad a vlan to vNIC template    
     - name: add vlan to vNIC Template
       ucs_vnic_template:
         hostname: 10.25.81.54
