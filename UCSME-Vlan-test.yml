@@ -12,4 +12,12 @@
         name: vlan-test
         id: '99'
         native: 'no'
-      
+    
+    - name: add vlan to vNIC Template
+      ucs_vnic_template:
+        name: DMZ_FabricA
+        fabric: A
+        vlans_list:
+        - name: vlan-test
+        native: no
+        
