@@ -13,7 +13,7 @@
         id: '99'
         native: 'no'
     
-    - name: add vlan to vlan Group.
+    - name: Add vlan to group
       ucs_vlan_to_group:
         hostname: 10.25.81.54
         username: ucspe
