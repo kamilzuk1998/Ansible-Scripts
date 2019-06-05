@@ -5,15 +5,15 @@
   gather_facts: false
   tasks:
     - name: Add vlan to UCSM
-     # ucs_vlans:
-     #   hostname: 10.25.81.54
-     #   username: ucspe
-     #   password: ucspe
-     #   name: vlan-test
-     #   id: '99'
-     #   native: 'no'
+      ucs_vlans:
+        hostname: 10.25.81.54
+        username: ucspe
+        password: ucspe
+        name: vlan-test
+        id: '99'
+        native: 'no'
     
-  #  - name: Add vlan to group
+    - name: Add vlan to group
       ucs_vlan_to_group:
         hostname: 10.25.81.54
         username: ucspe
